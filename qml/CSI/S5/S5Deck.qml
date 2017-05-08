@@ -3777,15 +3777,17 @@ Module
       enabled: (!deckARunning.value && !(module.shift && hasSeek(deckAType)))
                || (deckARunning.value && module.shift && (!hasSeek(deckAType) || scratchWithTouchstrip.value))
 
-      Wire { from: "%surface%.touchstrip";        to: "decks.1.scratch"        }
-      Wire { from: "%surface%.touchstrip.leds";   to: "decks.1.scratch.leds"   }
+      Wire { from: "%surface%.touchstrip";        to: "decks.1.tempo_bend"      }
+      
+    //  Wire { from: "%surface%.touchstrip.leds";   to: "decks.1.scratch.leds"   }
+     Wire { from: "%surface%.touchstrip.leds";   to: "decks.1.tempo_bend.leds" }
     }
 
     WiresGroup
     {
       enabled: deckARunning.value && !module.shift
 
-      Wire { from: "%surface%.touchstrip";        to: "decks.1.tempo_bend"      }
+      Wire { from: "%surface%.touchstrip";        to: "decks.1.scratch"        }     
       Wire { from: "%surface%.touchstrip.leds";   to: "decks.1.tempo_bend.leds" }
     }
   }
@@ -3835,15 +3837,16 @@ Module
       enabled: (!deckBRunning.value && !(module.shift && hasSeek(deckBType)))
                || (deckBRunning.value && module.shift && (!hasSeek(deckBType) || scratchWithTouchstrip.value))
 
-      Wire { from: "%surface%.touchstrip";       to: "decks.2.scratch"        }
-      Wire { from: "%surface%.touchstrip.leds";  to: "decks.2.scratch.leds"   }
+      Wire { from: "%surface%.touchstrip";       to: "decks.2.tempo_bend"      }
+      // Wire { from: "%surface%.touchstrip.leds";  to: "decks.2.scratch.leds"   }
+         Wire { from: "%surface%.touchstrip.leds";  to: "decks.2.tempo_bend.leds" }
     }
 
     WiresGroup
     {
       enabled: deckBRunning.value && !module.shift
 
-      Wire { from: "%surface%.touchstrip";       to: "decks.2.tempo_bend"      }
+      Wire { from: "%surface%.touchstrip";       to: "decks.2.scratch"        }
       Wire { from: "%surface%.touchstrip.leds";  to: "decks.2.tempo_bend.leds" }
     }
   }
@@ -3893,15 +3896,17 @@ Module
       enabled: (!deckCRunning.value && !(module.shift && hasSeek(deckCType)))
                || (deckCRunning.value && module.shift && (!hasSeek(deckCType) || scratchWithTouchstrip.value))
 
-      Wire { from: "%surface%.touchstrip";        to: "decks.3.scratch"         }
-      Wire { from: "%surface%.touchstrip.leds";   to: "decks.3.scratch.leds"    }
+      
+      Wire { from: "%surface%.touchstrip";        to: "decks.3.tempo_bend"       }
+      Wire { from: "%surface%.touchstrip.leds";   to: "decks.3.tempo_bend.leds"  }
+      // Wire { from: "%surface%.touchstrip.leds";   to: "decks.3.scratch.leds"    }
     }
 
     WiresGroup
     {
       enabled: deckCRunning.value && !module.shift
 
-      Wire { from: "%surface%.touchstrip";        to: "decks.3.tempo_bend"       }
+      Wire { from: "%surface%.touchstrip";        to: "decks.3.scratch"         }
       Wire { from: "%surface%.touchstrip.leds";   to: "decks.3.tempo_bend.leds"  }
     }
   }
@@ -3952,14 +3957,17 @@ Module
                || (deckDRunning.value && module.shift && (!hasSeek(deckDType) || scratchWithTouchstrip.value))
 
       Wire { from: "%surface%.touchstrip";       to: "decks.4.scratch"         }
-      Wire { from: "%surface%.touchstrip.leds";  to: "decks.4.scratch.leds"    }
+      // Wire { from: "%surface%.touchstrip.leds";  to: "decks.4.scratch.leds"    }
+            Wire { from: "%surface%.touchstrip";       to: "decks.4.tempo_bend"       }
+      Wire { from: "%surface%.touchstrip.leds";  to: "decks.4.tempo_bend.leds"  }
     }
 
     WiresGroup
     {
       enabled: deckDRunning.value && !module.shift
 
-      Wire { from: "%surface%.touchstrip";       to: "decks.4.tempo_bend"       }
+      // Wire { from: "%surface%.touchstrip";       to: "decks.4.tempo_bend"       }
+      Wire { from: "%surface%.touchstrip";       to: "decks.4.scratch"         }
       Wire { from: "%surface%.touchstrip.leds";  to: "decks.4.tempo_bend.leds"  }
     }
   }
